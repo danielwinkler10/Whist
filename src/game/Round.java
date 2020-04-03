@@ -2,6 +2,7 @@ package game;
 
 import card.Card;
 import driver.Main;
+import global.GlobalShit;
 import player.Player;
 import game.Game;
 
@@ -40,13 +41,13 @@ public class Round {
         for (int i = starter + 1; i < (players.size() + starter); i++) {
             Card c = players.get(i).getCard(miniDonald);
             if (c.getShape() == Game.getDonald()) {
-                c.setNum(c.getNum() + 13);
+                c.setNum(c.getNum() + GlobalShit.NUMBER_COUNT);
             } else if (c.getShape() != miniDonald) {
                 c.setNum(0);
             }
             onTable.add(players.get(i).getCard(miniDonald));
         }
-        return (maxIndex(onTable) + starter);
+        return ((maxIndex(onTable) + starter) % GlobalShit.SHAPE_COUNT);
     }
 
     public int maxIndex(ArrayList<Card> cards) {

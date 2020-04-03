@@ -37,8 +37,19 @@ public class Game {
         deck.shuffle();
         deck.deal();
         generateDonald();
+        generatePredictions();
+        playRounds();
 
     }
+
+    private void playRounds() {
+        int guesser = firstGuesser;
+        for (int i = 0; i < GlobalShit.NUMBER_COUNT; i++) {
+            Round round = new Round(guesser);
+            roundWinners round.playRound()
+        }
+    }
+
     private void generateDonald() {
         //TODO add Gulash logic
         int passCount = 0;
