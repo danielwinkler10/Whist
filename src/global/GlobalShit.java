@@ -29,7 +29,7 @@ public class GlobalShit {
             case 3:
                 return "Spade";
             default:
-                return "Error";
+                return "No needed shape";
         }
     }
 

@@ -38,15 +38,19 @@ public class Round {
         Card firstCard = players.get(starter).getCard(-1);
         onTable.add(firstCard);
         miniDonald = firstCard.getShape();
+
+
         for (int i = starter + 1; i < (players.size() + starter); i++) {
-            Card c = players.get(i).getCard(miniDonald);
+            Card c = players.get(i % players.size()).getCard(miniDonald);
             if (c.getShape() == Game.getDonald()) {
                 c.setNum(c.getNum() + GlobalShit.NUMBER_COUNT);
             } else if (c.getShape() != miniDonald) {
                 c.setNum(0);
-            }
-            onTable.add(players.get(i).getCard(miniDonald));
+            } //TODO MAY BE PROBLEMATIC FOR GRAPHICS, CONSIDER NOT CHANGING CARD VALUE
+            onTable.add(c);
         }
+
+
         return ((maxIndex(onTable) + starter) % GlobalShit.SHAPE_COUNT);
     }
 
