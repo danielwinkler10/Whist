@@ -6,7 +6,7 @@ import player.Player;
 
 import java.util.ArrayList;
 
-import global.Global;
+import global.GlobalShit;
 
 public class Game {
     private int firstGuesser;
@@ -16,13 +16,15 @@ public class Game {
     private int[] roundWinners;
     private int[] predictions;
     private int[] results;
+    Deck deck;
     private ArrayList<Player> players;
 
-    public Game(ArrayList<Player> players, int firstGuesser) {
+    public Game(ArrayList<Player> players, int firstGuesser, Deck deck) {
         this.firstGuesser = firstGuesser;
+        this.deck = deck;
         this.players = new ArrayList<Player>(players);
-        roundWinners = new int[Global.NUMBER_COUNT];
-        predictions = new int[Global.SHAPE_COUNT];
+        roundWinners = new int[GlobalShit.NUMBER_COUNT];
+        predictions = new int[GlobalShit.SHAPE_COUNT];
     }
     private void playGame(){
         Deck deck = new Deck(players);
@@ -32,13 +34,16 @@ public class Game {
         //Play 13 Rounds
             //Store the results
         //Figure out score changes
-
+        deck.shuffle();
+        deck.deal();
+        generateDonald();
 
     }
     private void generateDonald() {
+        //TODO add Gulash logic
         int passCount = 0;
         Guess highestGuess = new Guess(-1, -1);
-        boolean[] passLocations = new boolean[Global.SHAPE_COUNT];
+        boolean[] passLocations = new boolean[GlobalShit.SHAPE_COUNT];
         for (int i = 0; i < passLocations.length; i++) {
             passLocations[i] = false;
         }
@@ -64,24 +69,24 @@ public class Game {
     }
 
     private void generatePredictions() {
-        for (int i = highestGuesser; i < i + Global.SHAPE_COUNT; i++) {
+        for (int i = highestGuesser; i < i + GlobalShit.SHAPE_COUNT; i++) {
             int prediction;
             do {
-                prediction = players.get(i % Global.SHAPE_COUNT).getPrediction();
+                prediction = players.get(i % GlobalShit.SHAPE_COUNT).getPrediction();
             } while (!isPredictionValid(prediction, i - highestGuesser));
-            predictions[i % Global.SHAPE_COUNT] = prediction;
+            predictions[i % GlobalShit.SHAPE_COUNT] = prediction;
         }
     }
 
     private boolean isPredictionValid(int prediction, int playerPositionInPredictionRound) {
-        if (prediction > Global.NUMBER_COUNT || prediction < 0) return false;
+        if (prediction > GlobalShit.NUMBER_COUNT || prediction < 0) return false;
         if (playerPositionInPredictionRound == 0) return prediction >= initialHighestGuess;
-        if (playerPositionInPredictionRound == Global.SHAPE_COUNT - 1) {
+        if (playerPositionInPredictionRound == GlobalShit.SHAPE_COUNT - 1) {
             int firstThreeSum = 0;
-            for (int i = 0; i < Global.SHAPE_COUNT; i++) {
+            for (int i = 0; i < GlobalShit.SHAPE_COUNT; i++) {
                 firstThreeSum += predictions[i];
             }
-            return (prediction + firstThreeSum) == Global.NUMBER_COUNT;
+            return (prediction + firstThreeSum) == GlobalShit.NUMBER_COUNT;
         }
         return true;
     }

@@ -1,6 +1,6 @@
 package card;
 
-import global.Global;
+import global.GlobalShit;
 import player.Player;
 
 import java.util.ArrayList;
@@ -13,8 +13,8 @@ public class Deck {
     public Deck(ArrayList<Player> players) {
         cards = new ArrayList<>();
         this.players = players;
-        for (int shape = 0; shape < Global.SHAPE_COUNT; shape++) {
-            for (int num = Global.NUMBER_MIN; num < Global.NUMBER_MIN + Global.NUMBER_COUNT; num++) {
+        for (int shape = 0; shape < GlobalShit.SHAPE_COUNT; shape++) {
+            for (int num = GlobalShit.NUMBER_MIN; num < GlobalShit.NUMBER_MIN + GlobalShit.NUMBER_COUNT; num++) {
                 cards.add(new Card(shape, num));
             }
         }
@@ -28,11 +28,11 @@ public class Deck {
         shuffle();
         for (int i = 0; i < players.size(); i++) {
             Player p = players.get(i);
-            Card[] hand = new Card[Global.NUMBER_COUNT];
-            for (int j = Global.NUMBER_COUNT * i; j < Global.NUMBER_COUNT * (i + 1); j++) {
-                hand[j - (Global.NUMBER_COUNT * i)] = cards.get(j);
+            Card[] hand = new Card[GlobalShit.NUMBER_COUNT];
+            for (int j = GlobalShit.NUMBER_COUNT * i; j < GlobalShit.NUMBER_COUNT * (i + 1); j++) {
+                hand[j - (GlobalShit.NUMBER_COUNT * i)] = cards.get(j);
+                p.setHand(hand);
             }
-            p.setHand(hand);
         }
     }
 }

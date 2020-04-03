@@ -1,15 +1,18 @@
 package driver;
 
-import global.Global;
+
+import global.GlobalShit;
+import card.Deck;
 import player.Player;
 
 import java.util.ArrayList;
 
 public class Main {
   static  ArrayList<Player> players= new ArrayList<>();
+    static Deck deck = new Deck(players);
 
     public static void main(String[] args) {
-      createPlayers(Global.SHAPE_COUNT);
+      createPlayers(GlobalShit.SHAPE_COUNT);
     }
 
     public static ArrayList<Player> getPlayers() {
