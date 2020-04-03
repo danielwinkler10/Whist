@@ -1,5 +1,6 @@
 package driver;
 
+import global.GlobalShit;
 import player.Player;
 
 import java.util.ArrayList;
@@ -8,7 +9,7 @@ public class Main {
   static  ArrayList<Player> players= new ArrayList<>();
 
     public static void main(String[] args) {
-      createPlayers(4);
+      createPlayers(GlobalShit.SHAPE_COUNT);
     }
 
     public static ArrayList<Player> getPlayers() {

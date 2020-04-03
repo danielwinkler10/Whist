@@ -23,7 +23,15 @@ public class Game {
         roundWinners = new int[GlobalShit.NUMBER_COUNT];
         predictions = new int[GlobalShit.SHAPE_COUNT];
     }
+    private void playGame(){
+        //shuffle, deal
+        //generateDonald
+        //generatePredictions
+        //Play 13 Rounds
+            //Store the results
+        //Figure out score changes
 
+    }
     private void generateDonald() {
         int passCount = 0;
         Guess highestGuess = new Guess(-1, -1);
@@ -38,7 +46,7 @@ public class Game {
                     passCount++;
                     passLocations[i % passLocations.length] = true;
                 } else {
-                    highestGuess = currentGuess; //TODO implement getGuess and make sure it only allows higher guesses
+                    highestGuess = currentGuess;
                 }
             }
         }
