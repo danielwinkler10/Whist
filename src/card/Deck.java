@@ -31,8 +31,8 @@ public class Deck {
             Card[] hand = new Card[Global.NUMBER_COUNT];
             for (int j = Global.NUMBER_COUNT * i; j < Global.NUMBER_COUNT * (i + 1); j++) {
                 hand[j - (Global.NUMBER_COUNT * i)] = cards.get(j);
-                p.setHand(hand);
             }
+            p.setHand(hand);
         }
     }
 }

@@ -22,7 +22,6 @@ public class Main {
         for (int i = 0; i <numPlayers ; i++) {
          Player p= new Player("Player"+i);
             players.add(p);
-
         }
         return players;
     }
