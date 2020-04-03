@@ -4,12 +4,12 @@ public class Guess {
     int amount;
     int shape;
 
-    public Guess(int amount,int guess){
-        this.amount=amount;
-        this.shape =guess;
+    public Guess(int amount, int shape) {
+        this.amount = amount;
+        this.shape = shape;
     }
 
-    public int getAmount(){
+    public int getAmount() {
         return amount;
     }
 
