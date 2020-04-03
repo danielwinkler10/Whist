@@ -25,6 +25,7 @@ public class Game {
         this.players = new ArrayList<Player>(players);
         roundWinners = new int[GlobalShit.NUMBER_COUNT];
         predictions = new int[GlobalShit.SHAPE_COUNT];
+        playGame();
     }
 
     public void playGame() {
@@ -81,7 +82,7 @@ public class Game {
     }
 
     private int[] generatePlayerResults() {
-        int[] out = new int[4];
+        int[] out = new int[GlobalShit.SHAPE_COUNT];
         for (int i = 0; i < roundWinners.length; i++) {
             out[roundWinners[i]]++;
         }
