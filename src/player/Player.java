@@ -22,7 +22,7 @@ public class Player {
     }
 
     //Getters
-    public Card getCard(){
+    Card getCard(){
         System.out.println("Pick a card from your hand");
         int shape, num;
         System.out.println("Enter number 2-14");
@@ -46,7 +46,7 @@ public class Player {
         }
     }
 
-    public int getPrediction(){
+    int getPrediction(){
         int prediction;
         System.out.println("Pick a prediction based on Trump (2 - 14)");
         prediction = in.nextInt();
@@ -58,7 +58,7 @@ public class Player {
 
     //Helper Methonds
 
-   private void validateNumber(int num){
+    void validateNumber(int num){
         while (!(num >=GlobalShit.NUMBER_MIN && num <=GlobalShit.NUMBER_COUNT)){
             System.out.println("Not a valid number, Enter number 2-14");
             num = in.nextInt();
@@ -66,7 +66,7 @@ public class Player {
     }
 
 
-   private void validateShape(int num){
+    void validateShape(int num){
         while (!(num >=0 && num <=GlobalShit.SHAPE_COUNT)){
             System.out.println("Not a valid number, Enter number 0-3");
             num = in.nextInt();
