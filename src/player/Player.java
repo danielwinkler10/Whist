@@ -67,8 +67,7 @@ public class Player {
         Card newCard = new Card(shape, num);
 
         if (hand.isInHand(newCard)) {
-            hand.getCards().remove(newCard);
-            return newCard;
+            return hand.getCards().remove(findIndexOfCardInHand(newCard));
         } else {
             //Not sure this will work, if the card is not in the hand I'm just calling this function again
             //Big brains
@@ -149,5 +148,13 @@ public class Player {
             }
         }
         System.out.println();
+    }
+
+    private int findIndexOfCardInHand(Card card){
+        for (int i = 0; i < hand.getCards().size(); i++) {
+            Card currentCard = hand.getCards().get(i);
+            if (card.getShape() == currentCard.getShape() && card.getNum() == currentCard.getNum()) return i;
+        }
+        return -1;
     }
 }
