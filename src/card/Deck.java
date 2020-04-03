@@ -2,6 +2,7 @@ package card;
 import player.Player;
 import java.util.ArrayList;
 import java.util.Collections;
+import global.GlobalShit;
 
 public class Deck {
     ArrayList<Card> cards;
@@ -25,7 +26,7 @@ public class Deck {
         shuffle();
         for (int i = 0; i < players.size(); i++) {
             Player p = players.get(i);
-            Card[] hand = new Card[13];
+            Card[] hand = new Card[];
             for (int j = 13 * i; j < 13 * (i + 1); j++) {
                 hand[j - (13 * i)] = cards.get(j);
             }
