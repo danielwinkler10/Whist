@@ -113,7 +113,6 @@ public class Game {
         if (playerPositionInPredictionRound == GlobalShit.SHAPE_COUNT - 1) {
             int firstThreeSum = 0;
             for (int i = 0; i < GlobalShit.SHAPE_COUNT; i++) {
-                System.out.println(predictions[i]);
                 firstThreeSum += predictions[i];
             }
             return (prediction + firstThreeSum) != GlobalShit.NUMBER_COUNT;

@@ -51,6 +51,7 @@ public class Player {
     //Getters
     public Card getCard(int neededShape) {
         System.out.println("Pick a card from your hand");
+        displayHand();
         int shape, num;
         System.out.println("Enter number 2-14");
         num = in.nextInt();
@@ -132,5 +133,18 @@ public class Player {
         } else {
             return new Guess(num, shape);
         }
+    }
+
+    public void displayHand(){
+        System.out.println(name + " these are your cards:");
+        for (int i = 0; i < hand.getCards().length; i++) {
+            Card c = hand.getCards()[i];
+            if (i == hand.getCards().length - 1){
+                System.out.print(c.getNum() + " " + c.getShape());
+            } else {
+                System.out.print(c.getNum() + " " + c.getShape() + ", ");
+            }
+        }
+        System.out.println();
     }
 }
