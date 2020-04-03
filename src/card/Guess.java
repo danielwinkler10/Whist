@@ -4,9 +4,9 @@ public class Guess {
     int amount;
     int shape;
 
-    public Guess(int amount,int donald){
+    public Guess(int amount,int guess){
         this.amount=amount;
-        this.shape =donald;
+        this.shape =guess;
     }
 
     public int getAmount(){
