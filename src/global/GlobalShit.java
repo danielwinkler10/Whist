@@ -18,6 +18,20 @@ public class GlobalShit {
     public static final int HEART = 2;
     public static final int SPADE = 3;
 
+    public String getShapeName(int num){
+        switch (num){
+            case 0:
+                return "Diamond";
+            case 1:
+                return "Club";
+            case 2:
+                return "Heart";
+            case 3:
+                return "Spade";
+            default:
+                return "Error";
+        }
+    }
 
     //IF WE DO DECIDE TO CHANGE ANY OF THESE WE HAVE TO CHANGE ALL THE TEXT MESSAGES UNFORTUNATELY
 
