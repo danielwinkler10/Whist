@@ -5,6 +5,7 @@ import card.Guess;
 import global.GlobalShit;
 import global.Shape;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
@@ -45,7 +46,7 @@ public class Player {
 
 
     //Setters
-    public void setHand(Card[] cards) {
+    public void setHand(ArrayList<Card> cards) {
         hand.setCards(cards);
     }
 
