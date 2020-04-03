@@ -6,7 +6,7 @@ import player.Player;
 
 import java.util.ArrayList;
 
-import global.GlobalShit;
+import global.Global;
 
 public class Game {
     private int firstGuesser;
@@ -21,23 +21,24 @@ public class Game {
     public Game(ArrayList<Player> players, int firstGuesser) {
         this.firstGuesser = firstGuesser;
         this.players = new ArrayList<Player>(players);
-        roundWinners = new int[GlobalShit.NUMBER_COUNT];
-        predictions = new int[GlobalShit.SHAPE_COUNT];
+        roundWinners = new int[Global.NUMBER_COUNT];
+        predictions = new int[Global.SHAPE_COUNT];
     }
     private void playGame(){
+        Deck deck = new Deck(players);
         //shuffle, deal
         //generateDonald
         //generatePredictions
         //Play 13 Rounds
             //Store the results
         //Figure out score changes
-        Deck deck = new Deck(players);
+
 
     }
     private void generateDonald() {
         int passCount = 0;
         Guess highestGuess = new Guess(-1, -1);
-        boolean[] passLocations = new boolean[GlobalShit.SHAPE_COUNT];
+        boolean[] passLocations = new boolean[Global.SHAPE_COUNT];
         for (int i = 0; i < passLocations.length; i++) {
             passLocations[i] = false;
         }
@@ -63,24 +64,24 @@ public class Game {
     }
 
     private void generatePredictions() {
-        for (int i = highestGuesser; i < i + GlobalShit.SHAPE_COUNT; i++) {
+        for (int i = highestGuesser; i < i + Global.SHAPE_COUNT; i++) {
             int prediction;
             do {
-                prediction = players.get(i % GlobalShit.SHAPE_COUNT).getPrediction();
+                prediction = players.get(i % Global.SHAPE_COUNT).getPrediction();
             } while (!isPredictionValid(prediction, i - highestGuesser));
-            predictions[i % GlobalShit.SHAPE_COUNT] = prediction;
+            predictions[i % Global.SHAPE_COUNT] = prediction;
         }
     }
 
     private boolean isPredictionValid(int prediction, int playerPositionInPredictionRound) {
-        if (prediction > GlobalShit.NUMBER_COUNT || prediction < 0) return false;
+        if (prediction > Global.NUMBER_COUNT || prediction < 0) return false;
         if (playerPositionInPredictionRound == 0) return prediction >= initialHighestGuess;
-        if (playerPositionInPredictionRound == GlobalShit.SHAPE_COUNT - 1) {
+        if (playerPositionInPredictionRound == Global.SHAPE_COUNT - 1) {
             int firstThreeSum = 0;
-            for (int i = 0; i < GlobalShit.SHAPE_COUNT; i++) {
+            for (int i = 0; i < Global.SHAPE_COUNT; i++) {
                 firstThreeSum += predictions[i];
             }
-            return (prediction + firstThreeSum) == GlobalShit.NUMBER_COUNT;
+            return (prediction + firstThreeSum) == Global.NUMBER_COUNT;
         }
         return true;
     }

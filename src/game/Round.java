@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class Round {
     private int miniDonald;
-    ArrayList<Card> onTable = new ArrayList();
+    ArrayList<Card> onTable = new ArrayList<>();
     ArrayList<Player> players = Main.getPlayers();
     int starter;
 

@@ -2,7 +2,7 @@ package player;
 
 import card.Card;
 import card.Guess;
-import global.GlobalShit;
+import global.Global;
 
 import java.util.Scanner;
 
@@ -59,7 +59,7 @@ public class Player {
     //Helper Methonds
 
     private void validateNumber(int num) {
-        while (!(num >= GlobalShit.NUMBER_MIN && num <= GlobalShit.NUMBER_COUNT)) {
+        while (!(num >= Global.NUMBER_MIN && num <= Global.NUMBER_COUNT)) {
             System.out.println("Not a valid number, Enter number 2-14");
             num = in.nextInt();
         }
@@ -67,30 +67,30 @@ public class Player {
 
 
     private void validateShape(int num, int neededShape) {
-        while (!(num >= 0 && num <= GlobalShit.SHAPE_COUNT)) {
+        while (!(num >= 0 && num <= Global.SHAPE_COUNT)) {
             System.out.println("Not a valid number, Enter number 0-3");
             num = in.nextInt();
         }
         if (neededShape != -1) {
             if (this.hand.hasShape(neededShape)) {
-                while (num != neededShape) {
+                while (num != neededShape)
                     System.out.println("Please pick the correct shape");
                     num = in.nextInt();
                 }
             }
         }
-    }
+
 
     public Guess getGuess(Guess highestGuess) {
         int num, shape;
         System.out.println("Pick a number 5 or above to guess. Pick 0 to pass");
         num = in.nextInt();
-        if (num < GlobalShit.GUESS_MIN || num < highestGuess.getAmount() || num > GlobalShit.NUMBER_COUNT) return new Guess (-1, -1);
+        if (num < Global.GUESS_MIN || num < highestGuess.getAmount() || num > Global.NUMBER_COUNT) return new Guess (-1, -1);
         System.out.println("Enter the trump to base your guess on, 0-4");
         System.out.println("0 - Diamonds, 1 - Clubs, 2 - Hearts, 3 - Spades, 4 - Non-Trump");
         System.out.println("Non-Trump is only available if you guessed 7 or above");
         shape = in.nextInt();
-        if (shape == 4 && num < GlobalShit.NON_TRUMP_GUESS_MIN){
+        if (shape == 4 && num < Global.NON_TRUMP_GUESS_MIN){
             System.out.println("Can't guess Non-Trump with less than 7, automatically passing");
             return new Guess (-1, -1);
         }

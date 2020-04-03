@@ -1,7 +1,6 @@
 package player;
 
 import card.Card;
-import global.GlobalShit;
 
 public class Hand {
     Card[] cards;
