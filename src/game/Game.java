@@ -27,7 +27,6 @@ public class Game {
         predictions = new int[GlobalShit.SHAPE_COUNT];
     }
     public void playGame(){
-        Deck deck = new Deck(players);
         //shuffle, deal
         //generateDonald
         //generatePredictions
@@ -46,7 +45,8 @@ public class Game {
         int guesser = firstGuesser;
         for (int i = 0; i < GlobalShit.NUMBER_COUNT; i++) {
             Round round = new Round(guesser);
-            roundWinners round.playRound()
+            roundWinners[i] = round.playRound();
+            guesser = roundWinners[i];
         }
     }
 
