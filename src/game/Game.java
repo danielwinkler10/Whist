@@ -55,6 +55,7 @@ public class Game {
             }
             return (prediction + firstThreeSum) == GlobalShit.NUMBER_COUNT;
         }
+        return true;
     }
 
 }
