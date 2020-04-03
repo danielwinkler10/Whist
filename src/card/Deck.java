@@ -3,12 +3,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Deck {
-    ArrayList<Card> cards;
+    ArrayList cards;
     public Deck(){
-        cards= new ArrayList<>();
-        for (int shape = 0; shape <4 ; shape++) {
-            for (int num = 2; num <15 ; num++) {
-                cards.add(new Card(shape,num));
+        cards= new ArrayList<Card>();
+        for (int shape = 0; shape < 4 ; shape++) {
+            for (int num = 2; num < 15 ; num++) {
+                cards.add(new Card(shape, num));
             }
         }
     }
@@ -17,13 +17,5 @@ public class Deck {
     }
     public void deal(){
 
-    }
-
-    public ArrayList getCards() {
-        return cards;
-    }
-
-    public void setCards(ArrayList<Card> cards) {
-        this.cards = cards;
     }
 }
