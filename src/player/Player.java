@@ -1,6 +1,7 @@
 package player;
 
 import card.Card;
+import card.Guess;
 import global.GlobalShit;
 
 import java.util.Scanner;
@@ -78,5 +79,9 @@ public class Player {
                 }
             }
         }
+    }
+
+    public Guess getGuess(Guess highestGuess) {
+        return new Guess (-1, -1);
     }
 }

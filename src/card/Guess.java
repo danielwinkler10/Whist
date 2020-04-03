@@ -2,11 +2,11 @@ package card;
 
 public class Guess {
     int amount;
-    int donald;
+    int shape;
 
     public Guess(int amount,int donald){
         this.amount=amount;
-        this.donald=donald;
+        this.shape =donald;
     }
 
     public int getAmount(){
@@ -17,11 +17,11 @@ public class Guess {
         this.amount = amount;
     }
 
-    public int getDonald() {
-        return donald;
+    public int getShape() {
+        return shape;
     }
 
-    public void setDonald(int donald) {
-        this.donald = donald;
+    public void setShape(int shape) {
+        this.shape = shape;
     }
 }
