@@ -11,10 +11,13 @@ public class Player {
 
     Scanner in = new Scanner(System.in);
 
+
+    //Setters
     public void setHand(Card[] card){
         hand.setHand(card);
     }
 
+    //Getters
     Card getCard(){
         System.out.println("Pick a card from your hand");
         int shape, num;
@@ -32,6 +35,8 @@ public class Player {
         if(hand.isInHand(newCard)){
             return newCard;
         } else{
+            //Not sure this will work, if the card is not in the hand I'm just calling this function again
+            //Big brains
             System.out.println("Not in your hand");
             return getCard();
         }
@@ -44,6 +49,10 @@ public class Player {
         validateNumber(prediction);
         return prediction;
     }
+
+
+
+    //Helper Methonds
 
     void validateNumber(int num){
         while (!(num >=GlobalShit.NUMBER_MIN && num <=GlobalShit.NUMBER_COUNT)){
