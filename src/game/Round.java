@@ -3,6 +3,7 @@ package game;
 import card.Card;
 import driver.Main;
 import player.Player;
+import game.Game;
 
 import java.util.ArrayList;
 
@@ -38,23 +39,23 @@ public class Round {
         miniDonald = firstCard.getShape();
         for (int i = starter + 1; i < (players.size() + starter); i++) {
             Card c = players.get(i).getCard();
-            if (c.getShape() = Game.donald) {
+            if (c.getShape() == Game.getDonald()) {
                 c.setNum(c.getNum() + 13);
             } else if (c.getShape() != miniDonald) {
                 c.setNum(0);
             }
             onTable.add(players.get(i).getCard());
         }
-       return (maxIndex(onTable)+starter);
+        return (maxIndex(onTable) + starter);
     }
 
     public int maxIndex(ArrayList<Card> cards) {
         int max = -1;
         int maxIndex = -1;
         for (int i = 0; i < cards.size(); i++) {
-            if (cards.get(i).getNum()>max){
-                max=cards.get(i).getNum();
-                maxIndex=i;
+            if (cards.get(i).getNum() > max) {
+                max = cards.get(i).getNum();
+                maxIndex = i;
             }
         }
         return maxIndex;

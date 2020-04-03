@@ -7,7 +7,7 @@ import global.GlobalShit;
 
 public class Game {
     private int firstGuesser;
-    public int donald;
+    public static int donald;
     private int highestGuesser;
     private int initialHighestGuess; //may be a nicer way to think about this or enforce that they bet higher or equal to initial contract
     private int[] roundWinners;
@@ -30,6 +30,11 @@ public class Game {
         initialHighestGuess = highestGuess.getAmount();
         return 0; //TODO implement logic for going through players and getting highest guess
     }
+
+    public static int getDonald() {
+        return donald;
+    }
+
     private void generatePredictions(){
         for (int i = highestGuesser; i < i + GlobalShit.SHAPE_COUNT; i++) {
             int prediction;
