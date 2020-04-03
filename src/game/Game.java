@@ -82,7 +82,7 @@ public class Game {
     }
 
     private int[] generatePlayerResults() {
-        int[] out = new int[4];
+        int[] out = new int[GlobalShit.SHAPE_COUNT];
         for (int i = 0; i < roundWinners.length; i++) {
             out[roundWinners[i]]++;
         }
