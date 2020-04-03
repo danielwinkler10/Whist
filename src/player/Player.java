@@ -141,9 +141,9 @@ public class Player {
         for (int i = 0; i < hand.getCards().length; i++) {
             Card c = hand.getCards()[i];
             if (i == hand.getCards().length - 1){
-                System.out.print(c.getNum() + " " + c.getShape());
+                System.out.print(c.getNum() + " " + GlobalShit.getShapeName(c.getShape()));
             } else {
-                System.out.print(c.getNum() + " " + c.getShape() + ", ");
+                System.out.print(c.getNum() + " " + GlobalShit.getShapeName(c.getShape()) + ", ");
             }
         }
         System.out.println();
