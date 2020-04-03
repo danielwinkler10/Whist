@@ -51,7 +51,6 @@ public class Player {
         int prediction;
         System.out.println("Pick a prediction based on Trump (2 - 14)");
         prediction = in.nextInt();
-        validateNumber(prediction);
         return prediction;
     }
 
