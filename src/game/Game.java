@@ -78,6 +78,20 @@ public class Game {
     public static int getDonald() {
         return donald;
     }
+    private int[] generatePlayerResults(){
+        int[] out= new int[4];
+        for (int i = 0; i <roundWinners.length ; i++) {
+            out[roundWinners[i]]++;
+        }
+        return out;
+    }
+
+    private void updatePlayerScores(){
+        for (int i = 0; i <players.size() ; i++) {
+            Player p= players.get(i);
+            p.setScore(p.getScore()+calculatePlayerScore(i));
+        } }
+
 
     private void generatePredictions() {
         for (int i = highestGuesser; i < i + GlobalShit.SHAPE_COUNT; i++) {
