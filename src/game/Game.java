@@ -26,12 +26,13 @@ public class Game {
         roundWinners = new int[GlobalShit.NUMBER_COUNT];
         predictions = new int[GlobalShit.SHAPE_COUNT];
     }
-    public void playGame(){
+
+    public void playGame() {
         //shuffle, deal
         //generateDonald
         //generatePredictions
         //Play 13 Rounds
-            //Store the results
+        //Store the results
         //Figure out score changes
         deck.shuffle();
         deck.deal();
@@ -78,19 +79,21 @@ public class Game {
     public static int getDonald() {
         return donald;
     }
-    private int[] generatePlayerResults(){
-        int[] out= new int[4];
-        for (int i = 0; i <roundWinners.length ; i++) {
+
+    private int[] generatePlayerResults() {
+        int[] out = new int[4];
+        for (int i = 0; i < roundWinners.length; i++) {
             out[roundWinners[i]]++;
         }
         return out;
     }
 
-    private void updatePlayerScores(){
-        for (int i = 0; i <players.size() ; i++) {
-            Player p= players.get(i);
-            p.setScore(p.getScore()+calculatePlayerScore(i));
-        } }
+    private void updatePlayerScores() {
+        for (int i = 0; i < players.size(); i++) {
+            Player p = players.get(i);
+            p.setScore(p.getScore() + calculateIndividualScore(i));
+        }
+    }
 
 
     private void generatePredictions() {
@@ -114,6 +117,35 @@ public class Game {
             return (prediction + firstThreeSum) == GlobalShit.NUMBER_COUNT;
         }
         return true;
+    }
+
+    private int calculateIndividualScore(int player) {
+        int prediction = predictions[player];
+        int actual = results[player];
+        if (prediction == 0) {
+            if (actual != prediction) {
+                return (((actual - 1) * GlobalShit.zeroRedemptionFactor) - GlobalShit.zeroInitialPenalty);
+            } else {
+                if (isUp()) {
+                    return GlobalShit.zeroUpScore;
+                } else {
+                    return GlobalShit.zeroDownScore;
+                }
+            }
+
+        } else if (prediction == actual) {
+            return prediction * prediction + GlobalShit.bonusOnTheSquare;
+        } else {
+            return (-GlobalShit.penaltyForEachOneOff) * (Math.abs(prediction - actual));
+        }
+    }
+
+    private boolean isUp() {
+        int sum = 0;
+        for (int i = 0; i < GlobalShit.SHAPE_COUNT; i++) {
+            sum += predictions[i];
+        }
+        return sum > GlobalShit.NUMBER_COUNT;
     }
 
 }
