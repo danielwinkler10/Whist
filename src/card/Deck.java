@@ -6,8 +6,8 @@ public class Deck {
     ArrayList cards;
     public Deck(){
         cards= new ArrayList<Card>();
-        for (int shape = 0; shape <4 ; shape++) {
-            for (int num = 2; num <15 ; num++) {
+        for (int shape = 0; shape < 4 ; shape++) {
+            for (int num = 2; num < 15 ; num++) {
                 cards.add(new Card(shape,num));
             }
         }

@@ -3,6 +3,7 @@ package card;
 public class Card {
     int num;
     int shape;
+
     public Card(int shape, int num){
         this.num=num;
         this.shape=shape;
