@@ -39,7 +39,7 @@ public class Game {
         generateDonald();
         generatePredictions();
         playRounds();
-
+        updatePlayerScores();
     }
 
     private void playRounds() {
