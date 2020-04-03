@@ -98,7 +98,7 @@ public class Game {
 
 
     private void generatePredictions() {
-        for (int i = highestGuesser; i < i + GlobalShit.SHAPE_COUNT; i++) {
+        for (int i = highestGuesser; i < highestGuesser + GlobalShit.SHAPE_COUNT; i++) {
             int prediction;
             do {
                 prediction = players.get(i % GlobalShit.SHAPE_COUNT).getPrediction();

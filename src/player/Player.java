@@ -75,7 +75,7 @@ public class Player {
 
     public int getPrediction() {
         int prediction;
-        System.out.println("Pick a prediction based on Trump (2 - 14)");
+        System.out.println(name + " Pick a prediction based on Trump (0 - 13)");
         prediction = in.nextInt();
         return prediction;
     }
@@ -108,9 +108,12 @@ public class Player {
 
     public Guess getGuess(Guess highestGuess) {
         int num, shape;
-        System.out.println("Pick a number 5 or above to guess. Pick 0 to pass");
+        System.out.println(name + " Pick a number 5 or above to guess. Pick 0 to pass");
         num = in.nextInt();
-        if (num < GlobalShit.GUESS_MIN || num < highestGuess.getAmount() || num > GlobalShit.NUMBER_COUNT) return new Guess (-1, -1);
+        if (num < GlobalShit.GUESS_MIN || num < highestGuess.getAmount() || num > GlobalShit.NUMBER_COUNT){
+            System.out.println("Guess not high enough, automatically passing");
+            return new Guess (-1, -1);
+        }
         System.out.println("Enter the trump to base your guess on, 0-4");
         System.out.println("0 - Diamonds, 1 - Clubs, 2 - Hearts, 3 - Spades, 4 - Non-Trump");
         System.out.println("Non-Trump is only available if you guessed 7 or above");
