@@ -34,17 +34,17 @@ public class Round {
     }
 
     public int playRound() {
-        Card firstCard = players.get(starter).getCard();
-        onTable.add(players.get(starter).getCard());
+        Card firstCard = players.get(starter).getCard(-1);
+        onTable.add(firstCard);
         miniDonald = firstCard.getShape();
         for (int i = starter + 1; i < (players.size() + starter); i++) {
-            Card c = players.get(i).getCard();
+            Card c = players.get(i).getCard(miniDonald);
             if (c.getShape() == Game.getDonald()) {
                 c.setNum(c.getNum() + 13);
             } else if (c.getShape() != miniDonald) {
                 c.setNum(0);
             }
-            onTable.add(players.get(i).getCard());
+            onTable.add(players.get(i).getCard(miniDonald));
         }
         return (maxIndex(onTable) + starter);
     }

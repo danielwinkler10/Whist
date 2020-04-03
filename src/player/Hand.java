@@ -1,9 +1,10 @@
 package player;
 
 import card.Card;
+import global.GlobalShit;
 
 public class Hand {
-    Card[] cards = new Card[13];
+    Card[] cards = new Card[GlobalShit.NUMBER_COUNT];
 
     public void setHand(Card[] cardsArray){
         cards = cardsArray;
@@ -17,4 +18,13 @@ public class Hand {
         }
         return false;
     }
+    public boolean hasShape(int shape){
+        for(int i =0; i< cards.length; i++){
+            if(cards[i].getShape() == shape){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
