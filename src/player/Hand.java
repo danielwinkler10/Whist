@@ -2,29 +2,31 @@ package player;
 
 import card.Card;
 
+import java.util.ArrayList;
+
 public class Hand {
-    Card[] cards;
+    ArrayList<Card> cards;
 
 
-    public Card[] getCards() {
+    public ArrayList<Card> getCards() {
         return cards;
     }
 
-    public void setCards(Card[] cards) {
+    public void setCards(ArrayList<Card> cards) {
         this.cards = cards;
     }
 
     public boolean isInHand(Card cardToCheck){
-        for(int i =0; i< cards.length; i++){
-            if(cards[i].getNum() == cardToCheck.getNum() && cards[i].getShape() == cardToCheck.getShape()){
+        for(int i =0; i< cards.size(); i++){
+            if(cards.get(i).getNum() == cardToCheck.getNum() && cards.get(i).getShape() == cardToCheck.getShape()){
                 return true;
             }
         }
         return false;
     }
     public boolean hasShape(int shape){
-        for(int i =0; i< cards.length; i++){
-            if(cards[i].getShape() == shape){
+        for(int i =0; i< cards.size(); i++){
+            if(cards.get(i).getShape() == shape){
                 return true;
             }
         }

@@ -139,9 +139,9 @@ public class Player {
 
     public void displayHand(){
         System.out.println(name + " these are your cards:");
-        for (int i = 0; i < hand.getCards().length; i++) {
-            Card c = hand.getCards()[i];
-            if (i == hand.getCards().length - 1){
+        for (int i = 0; i < hand.getCards().size(); i++) {
+            Card c = hand.getCards().get(i);
+            if (i == hand.getCards().size() - 1){
                 System.out.print(c.getNum() + " " + GlobalShit.getShapeName(c.getShape()));
             } else {
                 System.out.print(c.getNum() + " " + GlobalShit.getShapeName(c.getShape()) + ", ");
