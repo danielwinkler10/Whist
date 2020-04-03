@@ -58,7 +58,7 @@ public class Player {
 
     //Helper Methonds
 
-   private void validateNumber(int num){
+    private void validateNumber(int num){
         while (!(num >=GlobalShit.NUMBER_MIN && num <=GlobalShit.NUMBER_COUNT)){
             System.out.println("Not a valid number, Enter number 2-14");
             num = in.nextInt();
@@ -66,7 +66,7 @@ public class Player {
     }
 
 
-   private void validateShape(int num){
+    private void validateShape(int num){
         while (!(num >=0 && num <=GlobalShit.SHAPE_COUNT)){
             System.out.println("Not a valid number, Enter number 0-3");
             num = in.nextInt();
