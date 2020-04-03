@@ -9,6 +9,7 @@ import java.util.Scanner;
 public class Player {
     private String name;
     private int score;
+    private Hand hand;
 
     public String getName() {
         return name;
@@ -34,10 +35,9 @@ public class Player {
         this.hand = hand;
     }
 
-    private Hand hand;
-
     public Player(String name) {
         this.name = name;
+        hand = new Hand();
     }
 
     Scanner in = new Scanner(System.in);
