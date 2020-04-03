@@ -5,9 +5,6 @@ import card.Card;
 public class Hand {
     Card[] cards;
 
-    public Hand(Card[] cardsArray){
-        cards = cardsArray;
-    }
 
     public Card[] getCards() {
         return cards;

@@ -26,7 +26,7 @@ public class Game {
         roundWinners = new int[GlobalShit.NUMBER_COUNT];
         predictions = new int[GlobalShit.SHAPE_COUNT];
     }
-    private void playGame(){
+    public void playGame(){
         Deck deck = new Deck(players);
         //shuffle, deal
         //generateDonald

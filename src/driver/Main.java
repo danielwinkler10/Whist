@@ -1,18 +1,22 @@
 package driver;
 
-
-import global.GlobalShit;
 import card.Deck;
+import game.Game;
+import global.GlobalShit;
 import player.Player;
 
 import java.util.ArrayList;
 
 public class Main {
-  static  ArrayList<Player> players= new ArrayList<>();
-    static Deck deck = new Deck(players);
+  static  ArrayList<Player> players = new ArrayList<>();
 
     public static void main(String[] args) {
       createPlayers(GlobalShit.SHAPE_COUNT);
+
+      Deck deck = new Deck(players);
+      Game game = new Game(players, 0, deck);
+      game.playGame();
+
     }
 
     public static ArrayList<Player> getPlayers() {
@@ -21,11 +25,11 @@ public class Main {
 
     public static ArrayList<Player> createPlayers(int numPlayers){
         ArrayList<Player> players= new ArrayList<>();
-
         for (int i = 0; i <numPlayers ; i++) {
-         Player p= new Player("Player"+i);
+         Player p = new Player("Player"+i);
             players.add(p);
         }
+
         return players;
     }
 }
