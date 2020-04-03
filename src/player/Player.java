@@ -9,6 +9,10 @@ public class Player {
     private int score;
     private Hand hand;
 
+    public Player(String name){
+        this.name = name;
+    }
+
     Scanner in = new Scanner(System.in);
 
 
