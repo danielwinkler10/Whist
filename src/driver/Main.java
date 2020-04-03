@@ -14,8 +14,11 @@ public class Main {
       createPlayers(GlobalShit.SHAPE_COUNT);
 
       Deck deck = new Deck(players);
-      Game game = new Game(players, 0, deck);
-      game.playGame();
+
+      for (int i =0; i < players.size(); i++){
+          Game game = new Game(players, i, deck);
+      }
+
 
     }
 

@@ -25,6 +25,7 @@ public class Game {
         this.players = new ArrayList<Player>(players);
         roundWinners = new int[GlobalShit.NUMBER_COUNT];
         predictions = new int[GlobalShit.SHAPE_COUNT];
+        playGame();
     }
 
     public void playGame() {
