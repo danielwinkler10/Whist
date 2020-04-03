@@ -40,6 +40,7 @@ public class Game {
         generateDonald();
         generatePredictions();
         playRounds();
+        generatePlayerResults();
         updatePlayerScores();
     }
 

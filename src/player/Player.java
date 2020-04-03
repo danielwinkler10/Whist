@@ -3,6 +3,7 @@ package player;
 import card.Card;
 import card.Guess;
 import global.GlobalShit;
+import global.Shape;
 
 import java.util.Scanner;
 
