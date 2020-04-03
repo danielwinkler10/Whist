@@ -31,7 +31,7 @@ public class Player {
         num = in.nextInt();
         validateNumber(num);
 
-        System.out.println("Enter the shape, 0-4");
+        System.out.println("Enter the shape, 0-3");
         System.out.println("0 - Diamond, 1 - Clubs, 2 - Hearts, 3 - Spades");
         shape = in.nextInt();
         validateShape(shape, neededShape);
@@ -82,6 +82,25 @@ public class Player {
     }
 
     public Guess getGuess(Guess highestGuess) {
-        return new Guess (-1, -1);
+        int num, shape;
+        System.out.println("Pick a number 5 or above to guess. Pick 0 to pass");
+        num = in.nextInt();
+        if (num < GlobalShit.GUESS_MIN || num < highestGuess.getAmount() || num > GlobalShit.NUMBER_COUNT) return new Guess (-1, -1);
+        System.out.println("Enter the trump to base your guess on, 0-4");
+        System.out.println("0 - Diamonds, 1 - Clubs, 2 - Hearts, 3 - Spades, 4 - Non-Trump");
+        System.out.println("Non-Trump is only available if you guessed 7 or above");
+        shape = in.nextInt();
+        if (shape == 4 && num < GlobalShit.NON_TRUMP_GUESS_MIN){
+            System.out.println("Can't guess Non-Trump with less than 7, automatically passing");
+            return new Guess (-1, -1);
+        }
+        if (num == highestGuess.getAmount()){
+            if (shape > highestGuess.getShape()){
+                return new Guess(num, shape);
+            } else {
+                System.out.println("your shape is weaker than the current guess leader's shape, automatically passing");
+                return new Guess (-1, -1);
+            }
+        }
     }
 }
