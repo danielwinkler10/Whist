@@ -12,6 +12,7 @@ public class Game {
     int firstGuess;
     int donald;
     int highestGuesser;
+    int initialHighestCommitment; //may be a nicer way to think about this or enforce that they bet higher or equal to initial contract
     int[] roundWinners;
     int[] predictions;
     int[] results;
@@ -23,7 +24,23 @@ public class Game {
     private int generateDonald() {
         int passCount = 0;
         Guess highestGuess;
+
+
+
+
+        initialHighestCommitment = highestGuess.getAmount();
         return 0; //TODO implement logic for going through players and getting highest guess
+    }
+    private void generatePredictions(){
+        for (int i = highestGuesser; i < i + 4; i++) {
+            do {
+                players.get(i).getPrediction();
+            } while (!isPredictionValid());
+        }
+    }
+
+    private boolean isPredictionValid() {
+        if ()
     }
 
 
