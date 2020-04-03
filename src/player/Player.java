@@ -28,8 +28,13 @@ public class Player {
         validateShape(shape);
 
         Card newCard = new Card(shape,num);
-        // if() card is valid, calling a method in Hand.
-        return newCard;
+
+        if(hand.isInHand(newCard)){
+            return newCard;
+        } else{
+            System.out.println("Not in your hand");
+            return getCard();
+        }
     }
 
     int getPrediction(){
