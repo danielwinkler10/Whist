@@ -30,7 +30,7 @@ public class Deck {
             Player p = players.get(i);
             Card[] hand = new Card[GlobalShit.NUMBER_COUNT];
             for (int j = GlobalShit.NUMBER_COUNT * i; j < GlobalShit.NUMBER_COUNT * (i + 1); j++) {
-                hand[j - (GlobalShit.NUMBER_COUNT * i)] = cards.get(j);
+                hand[j%GlobalShit.NUMBER_COUNT] = cards.get(j);
                 p.setHand(hand);
             }
         }
