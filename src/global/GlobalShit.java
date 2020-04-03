@@ -18,7 +18,7 @@ public class GlobalShit {
     public static final int HEART = 2;
     public static final int SPADE = 3;
 
-    public String getShapeName(int num){
+    public static String getShapeName(int num){
         switch (num){
             case 0:
                 return "Diamond";
