@@ -101,6 +101,8 @@ public class Player {
                 System.out.println("your shape is weaker than the current guess leader's shape, automatically passing");
                 return new Guess (-1, -1);
             }
+        } else {
+            return new Guess(num, shape);
         }
     }
 }
