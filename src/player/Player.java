@@ -67,6 +67,7 @@ public class Player {
         Card newCard = new Card(shape, num);
 
         if (hand.isInHand(newCard)) {
+            hand.getCards().remove(newCard);
             return newCard;
         } else {
             //Not sure this will work, if the card is not in the hand I'm just calling this function again
