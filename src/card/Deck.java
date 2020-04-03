@@ -28,9 +28,9 @@ public class Deck {
         shuffle();
         for (int i = 0; i < players.size(); i++) {
             Player p = players.get(i);
-            Card[] hand = new Card[GlobalShit.NUMBER_COUNT];
+            ArrayList<Card> hand = new ArrayList<>();
             for (int j = GlobalShit.NUMBER_COUNT * i; j < GlobalShit.NUMBER_COUNT * (i + 1); j++) {
-                hand[j%GlobalShit.NUMBER_COUNT] = cards.get(j);
+                hand.set(j%GlobalShit.NUMBER_COUNT, cards.get(j));
                 p.setHand(hand);
             }
         }
