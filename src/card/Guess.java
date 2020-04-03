@@ -9,7 +9,7 @@ public class Guess {
         this.donald=donald;
     }
 
-    public int getAmount()
+    public int getAmount(){
         return amount;
     }
 

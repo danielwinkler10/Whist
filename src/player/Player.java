@@ -9,7 +9,7 @@ public class Player {
     private int score;
     private Hand hand;
 
-    void setHand(Card[] card){
+    public void setHand(Card[] card){
         hand.setHand(card);
     }
 
