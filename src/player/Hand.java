@@ -5,7 +5,7 @@ import card.Card;
 public class Hand {
     Card[] cards = new Card[13];
 
-    public void Hand(Card[] cardsArray){
+    public void setHand(Card[] cardsArray){
         cards = cardsArray;
     }
 

@@ -9,6 +9,10 @@ public class Player {
     private int score;
     private Hand hand;
 
+    void setHand(Card[] card){
+        hand.setHand(card);
+    }
+
     Card getCard(){
         System.out.println("Pick a card from your hand");
 
