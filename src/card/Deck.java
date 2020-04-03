@@ -26,7 +26,7 @@ public class Deck {
         shuffle();
         for (int i = 0; i < players.size(); i++) {
             Player p = players.get(i);
-            Card[] hand = new Card[];
+            Card[] hand = new Card[13];
             for (int j = 13 * i; j < 13 * (i + 1); j++) {
                 hand[j - (13 * i)] = cards.get(j);
             }
