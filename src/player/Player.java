@@ -1,6 +1,7 @@
 package player;
 
 import card.Card;
+import global.GlobalShit;
 import java.util.Scanner;
 
 public class Player {
@@ -19,10 +20,7 @@ public class Player {
         int shape, num;
         System.out.println("Enter number 2-14");
         num = in.nextInt();
-        while (!(num >=2 && num <=14)){
-            System.out.println("Not a valid number, Enter number 2-14");
-            num = in.nextInt();
-        }
+        validateNumber(num);
 
         System.out.println("Enter the shape, 0-4");
         System.out.println("0 - Diamond, 1 - Clubs, 2 - Hearts, 3 - Spades");
@@ -43,7 +41,7 @@ public class Player {
     }
 
     void validateNumber(int num){
-        while (!(num >=2 && num <=14)){
+        while (!(num >=GlobalShit.NUMBER_MIN && num <=GlobalShit.NUMBER_COUNT)){
             System.out.println("Not a valid number, Enter number 2-14");
             num = in.nextInt();
         }
@@ -51,7 +49,7 @@ public class Player {
 
 
     void validateShape(int num){
-        while (!(num >=0 && num <=3)){
+        while (!(num >=0 && num <=GlobalShit.SHAPE_COUNT)){
             System.out.println("Not a valid number, Enter number 0-3");
             num = in.nextInt();
         }
