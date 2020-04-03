@@ -19,8 +19,8 @@ public class Player {
 
 
     //Setters
-    public void setHand(Card[] card) {
-        hand.setHand(card);
+    public void setHand(Card[] cards) {
+        hand.setCards(cards);
     }
 
     //Getters

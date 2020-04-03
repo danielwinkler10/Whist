@@ -4,10 +4,18 @@ import card.Card;
 import global.GlobalShit;
 
 public class Hand {
-    Card[] cards = new Card[GlobalShit.NUMBER_COUNT];
+    Card[] cards;
 
-    public void setHand(Card[] cardsArray){
+    public Hand(Card[] cardsArray){
         cards = cardsArray;
+    }
+
+    public Card[] getCards() {
+        return cards;
+    }
+
+    public void setCards(Card[] cards) {
+        this.cards = cards;
     }
 
     public boolean isInHand(Card cardToCheck){

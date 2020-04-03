@@ -1,5 +1,6 @@
 package game;
 
+import card.Deck;
 import card.Guess;
 import player.Player;
 
@@ -30,6 +31,7 @@ public class Game {
         //Play 13 Rounds
             //Store the results
         //Figure out score changes
+        Deck deck = new Deck(players);
 
     }
     private void generateDonald() {
