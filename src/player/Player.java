@@ -56,14 +56,12 @@ public class Player {
         System.out.println("Needed shape is " + GlobalShit.getShapeName(neededShape));
         displayHand();
         int shape, num;
-        System.out.println("Enter number 2-14");
-        num = in.nextInt();
-        num = validateNumber(num);
-
         System.out.println("Enter the shape, 0-3");
         System.out.println("0 - Diamond, 1 - Clubs, 2 - Hearts, 3 - Spades");
         shape = in.nextInt();
         shape = validateShape(shape, neededShape);
+        System.out.println("Enter number 2-14");
+        num = validateNumber(in.nextInt());
 
         Card newCard = new Card(shape, num);
 
@@ -97,7 +95,7 @@ public class Player {
 
 
     private int validateShape(int shape, int neededShape) {
-        while (!(shape >= 0 && shape <= GlobalShit.SHAPE_COUNT)) {
+        while (!(shape >= 0 && shape < GlobalShit.SHAPE_COUNT)) {
             System.out.println("Not a valid number, Enter number 0-3");
             shape = in.nextInt();
         }
