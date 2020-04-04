@@ -115,21 +115,22 @@ public class Player {
 
     public Guess getGuess(Guess highestGuess) {
         int num, shape;
+        displayHand();
         System.out.println(name + " Pick a number 5 or above to guess. Pick 0 to pass");
         num = in.nextInt();
         if (num < GlobalShit.GUESS_MIN || num < highestGuess.getAmount() || num > GlobalShit.NUMBER_COUNT) {
             System.out.println("Guess not high enough, automatically passing");
-            return new Guess(-1, -1);
+            return GlobalShit.PASS;
         }
-        System.out.println("Enter the trump to base your guess on, 0-4");
-        System.out.println("0 - Diamonds, 1 - Clubs, 2 - Hearts, 3 - Spades, 4 - Non-Trump");
-        System.out.println("Non-Trump is only available if you guessed 7 or above");
         do {
+            System.out.println("Enter the trump to base your guess on, 0-4");
+            System.out.println("0 - Diamonds, 1 - Clubs, 2 - Hearts, 3 - Spades, 4 - Non-Trump");
+            System.out.println("Non-Trump is only available if you guessed 7 or above");
             shape = in.nextInt();
         } while (shape > GlobalShit.SHAPE_COUNT || shape < 0);
-        if (shape == 4 && num < GlobalShit.NON_TRUMP_GUESS_MIN) {
+        if (shape == GlobalShit.SHAPE_COUNT && num < GlobalShit.NON_TRUMP_GUESS_MIN) {
             System.out.println("Can't guess Non-Trump with less than 7, automatically passing");
-            return new Guess(-1, -1);
+            return GlobalShit.PASS;
         }
         if (num == highestGuess.getAmount()) {
             if (shape > highestGuess.getShape()) {

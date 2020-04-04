@@ -21,7 +21,7 @@ public class Deck {
     }
 
     public void shuffle() {
-        //Collections.shuffle(cards); //TODO unComment
+        Collections.shuffle(cards); //TODO unComment
     }
 
     public void deal() {

@@ -64,7 +64,7 @@ public class Game {
         for (int i = firstGuesser; highestGuess.getShape() == -1 || passCount < passLocations.length - 1; i++) {
             if (!passLocations[i % passLocations.length]) {
                 Guess currentGuess = players.get(i % passLocations.length).getGuess(highestGuess);
-                if (currentGuess.getAmount() == -1) {
+                if (currentGuess.getShape() == -1) {
                     passCount++;
                     passLocations[i % passLocations.length] = true;
                 } else {
