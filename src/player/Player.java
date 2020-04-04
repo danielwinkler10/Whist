@@ -95,19 +95,17 @@ public class Player {
 
 
     private int validateShape(int shape, int neededShape) {
-        while (!(shape >= 0 && shape < GlobalShit.SHAPE_COUNT)) {
-            System.out.println("Not a valid number, Enter number 0-3");
-            shape = in.nextInt();
-        }
-        if (neededShape != -1) {
-            if (this.hand.hasShape(neededShape)) {
-                while (shape != neededShape) {
-                    System.out.println("Please pick the correct shape"); //TODO we should validate that the player can play a number when he selects a number, not a shape.
-                    shape = in.nextInt();
-                }
+        if (hand.hasShape(neededShape)) {
+            if (shape != neededShape)
+                System.out.println("You have to select a card of the required shape. Selecting the required shape, " + GlobalShit.getShapeName(neededShape) + ", automatically");
+            return neededShape;
+        } else {
+            while (!(shape >= 0 && shape < GlobalShit.SHAPE_COUNT)) {
+                System.out.println("Not a valid number, Enter number 0-3");
+                shape = in.nextInt();
             }
+            return shape;
         }
-        return shape;
     }
 
 
