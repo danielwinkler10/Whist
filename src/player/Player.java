@@ -124,7 +124,9 @@ public class Player {
         System.out.println("Enter the trump to base your guess on, 0-4");
         System.out.println("0 - Diamonds, 1 - Clubs, 2 - Hearts, 3 - Spades, 4 - Non-Trump");
         System.out.println("Non-Trump is only available if you guessed 7 or above");
-        shape = in.nextInt();
+        do {
+            shape = in.nextInt();
+        } while (shape > GlobalShit.SHAPE_COUNT || shape < 0);
         if (shape == 4 && num < GlobalShit.NON_TRUMP_GUESS_MIN) {
             System.out.println("Can't guess Non-Trump with less than 7, automatically passing");
             return new Guess(-1, -1);

@@ -35,6 +35,7 @@ public class Game {
         //Play 13 Rounds
         //Store the results
         //Figure out score changes
+        //TODO display results
         deck.shuffle();
         deck.deal();
         generateDonald();

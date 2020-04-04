@@ -50,7 +50,7 @@ public class Round {
             onTable.add(c);
         }
 
-
+        System.out.println("Round winner is " + players.get((maxIndex(onTable) + starter) % GlobalShit.SHAPE_COUNT).getName());
         return ((maxIndex(onTable) + starter) % GlobalShit.SHAPE_COUNT);
     }
 
