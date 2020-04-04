@@ -55,14 +55,13 @@ public class Game {
     }
 
     private void generateDonald() {
-        //TODO add Gulash logic
         int passCount = 0;
-        Guess highestGuess = new Guess(-1, -1);
+        Guess highestGuess = GlobalShit.PASS;
         boolean[] passLocations = new boolean[GlobalShit.SHAPE_COUNT];
         for (int i = 0; i < passLocations.length; i++) {
             passLocations[i] = false;
         }
-        for (int i = firstGuesser; passCount < passLocations.length - 1; i++) {
+        for (int i = firstGuesser; highestGuess.getShape() == -1 || passCount < passLocations.length - 1; i++) {
             if (!passLocations[i % passLocations.length]) {
                 Guess currentGuess = players.get(i % passLocations.length).getGuess(highestGuess);
                 if (currentGuess.getAmount() == -1) {
@@ -71,6 +70,9 @@ public class Game {
                 } else {
                     highestGuess = currentGuess;
                 }
+            }
+            if (passCount == GlobalShit.SHAPE_COUNT){
+                System.out.println("GULASH"); //TODO add Gulash logic
             }
         }
 
