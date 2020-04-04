@@ -61,18 +61,8 @@ public class Player {
         shape = in.nextInt();
         shape = validateShape(shape, neededShape);
         System.out.println("Enter number 2-14");
-        num = validateNumber(in.nextInt());
-
-        Card newCard = new Card(shape, num);
-
-        if (hand.isInHand(newCard)) {
-            return hand.getCards().remove(findIndexOfCardInHand(newCard));
-        } else {
-            //Not sure this will work, if the card is not in the hand I'm just calling this function again
-            //Big brains
-            System.out.println("Not in your hand");
-            return getCard(neededShape);
-        }
+        num = validateNumber(in.nextInt(), shape);
+        return hand.getCards().remove(findIndexOfCardInHand(new Card(shape, num)));
     }
 
     public int getPrediction() {
@@ -85,8 +75,8 @@ public class Player {
 
     //Helper Methonds
 
-    private int validateNumber(int num) {
-        while (!(num >= GlobalShit.NUMBER_MIN && num < (GlobalShit.NUMBER_COUNT + GlobalShit.NUMBER_MIN))) {
+    private int validateNumber(int num, int shape) {
+        while (!hand.isInHand(new Card(shape, num))) {
             System.out.println("Not a valid number, Enter number 2-14");
             num = in.nextInt();
         }
@@ -100,7 +90,7 @@ public class Player {
                 System.out.println("You have to select a card of the required shape. Selecting the required shape, " + GlobalShit.getShapeName(neededShape) + ", automatically");
             return neededShape;
         } else {
-            while (!(shape >= 0 && shape < GlobalShit.SHAPE_COUNT)) {
+            while ((shape < 0 || shape >= GlobalShit.SHAPE_COUNT || !hand.hasShape(shape))) {
                 System.out.println("Not a valid number, Enter number 0-3");
                 shape = in.nextInt();
             }
