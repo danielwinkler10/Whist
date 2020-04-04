@@ -73,6 +73,9 @@ public class Game {
             }
             if (passCount == GlobalShit.SHAPE_COUNT){
                 System.out.println("GULASH"); //TODO add Gulash logic
+                //Shuffle cards
+                //set pass count to zero
+                //i should be first guesser again
             }
         }
 
