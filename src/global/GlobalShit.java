@@ -32,7 +32,7 @@ public class GlobalShit {
             case 3:
                 return "Spade";
             default:
-                return "No needed shape";
+                return "Non-Trump";
         }
     }
 

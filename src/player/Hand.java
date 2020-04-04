@@ -43,7 +43,6 @@ public class Hand {
                 if (cards.get(currentMinIndex).getShape() > cards.get(j).getShape()) currentMinIndex = j;
                 else if (cards.get(currentMinIndex).getShape() == cards.get(j).getShape() && cards.get(currentMinIndex).getNum() > cards.get(j).getNum())  currentMinIndex = j;
             }
-            System.out.println(cards.size());
             organizedCards.add(cards.remove(currentMinIndex));
         }
         cards = organizedCards;

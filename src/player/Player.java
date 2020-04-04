@@ -104,7 +104,7 @@ public class Player {
         if (neededShape != -1) {
             if (this.hand.hasShape(neededShape)) {
                 while (shape != neededShape) {
-                    System.out.println("Please pick the correct shape");
+                    System.out.println("Please pick the correct shape"); //TODO we should validate that the player can play a number when he selects a number, not a shape.
                     shape = in.nextInt();
                 }
             }
