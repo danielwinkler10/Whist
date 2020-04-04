@@ -32,8 +32,8 @@ public class Deck {
             for (int j = GlobalShit.NUMBER_COUNT * i; j < GlobalShit.NUMBER_COUNT * (i + 1); j++) {
                 hand.add(cards.get(j));
                 p.setHand(hand);
-                p.getHand().sortHand();
             }
+            p.getHand().sortHand();
         }
     }
 }

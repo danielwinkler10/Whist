@@ -36,15 +36,17 @@ public class Hand {
     }
 
     public void sortHand() {
-        ArrayList<Card> organizedCards = new ArrayList<>(GlobalShit.NUMBER_COUNT);
+        ArrayList<Card> organizedCards = new ArrayList<>();
         for (int i = 0; i < GlobalShit.NUMBER_COUNT; i++) {
             int currentMinIndex = 0;
             for (int j = 1; j < cards.size(); j++) {
                 if (cards.get(currentMinIndex).getShape() > cards.get(j).getShape()) currentMinIndex = j;
                 else if (cards.get(currentMinIndex).getShape() == cards.get(j).getShape() && cards.get(currentMinIndex).getNum() > cards.get(j).getNum())  currentMinIndex = j;
             }
+            System.out.println(cards.size());
             organizedCards.add(cards.remove(currentMinIndex));
         }
+        cards = organizedCards;
     }
 
 
