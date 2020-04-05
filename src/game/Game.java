@@ -44,7 +44,7 @@ public class Game {
         generatePlayerResults();
         updatePlayerScores();
     }
-
+// Plays out the rounds and saves the winner of each round as the next round's guesser
     private void playRounds() {
         int guesser = firstGuesser;
         for (int i = 0; i < GlobalShit.NUMBER_COUNT; i++) {
@@ -53,7 +53,7 @@ public class Game {
             guesser = roundWinners[i];
         }
     }
-
+// Takes guesses starting from the first guesser and keeps count of how many passes were given. 
     private void generateDonald() {
         int passCount = 0;
         Guess highestGuess = GlobalShit.PASS;
@@ -83,7 +83,7 @@ public class Game {
         initialHighestGuess = highestGuess.getAmount();
         donald = highestGuess.getShape();
     }
-
+// Getter
     public static int getDonald() {
         return donald;
     }
