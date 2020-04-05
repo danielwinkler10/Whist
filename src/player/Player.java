@@ -10,62 +10,36 @@ import java.util.Scanner;
 public class Player {
 
     // Variables
+    Scanner in = new Scanner(System.in);
+
+    // Constructor
+    public Player(String name) {
+        this.name = name;
+        hand = new Hand();
+    }
+
+    // Variables
     private String name;
     private int score;
     private Hand hand;
 
-    //
+    //Getters
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public int getScore() {
         return score;
     }
 
-    public void setScore(int score) {
-        this.score = score;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Hand getHand() {
         return hand;
     }
 
-    public void setHand(Hand hand) {
-        this.hand = hand;
-    }
-
-    public Player(String name) {
-        this.name = name;
-        hand = new Hand();
-    }
-
-    Scanner in = new Scanner(System.in);
-
-
-    //Setters
-    public void setHand(ArrayList<Card> cards) {
-        hand.setCards(cards);
-    }
-
-    //Getters
-    public Card getCard(int neededShape) {
-        System.out.println("Pick a card from your hand");
-        System.out.println("Needed shape is " + GlobalShit.getShapeName(neededShape));
-        displayHand();
-        int shape, num;
-        System.out.println("Enter the shape, 0-3");
-        System.out.println("0 - Diamond, 1 - Clubs, 2 - Hearts, 3 - Spades");
-        shape = in.nextInt();
-        shape = validateShape(shape, neededShape);
-        System.out.println("Enter number 2-14");
-        num = validateNumber(in.nextInt(), shape);
-        return hand.getCards().remove(findIndexOfCardInHand(new Card(shape, num)));
-    }
 
     public int getPrediction() {
         int prediction;
@@ -73,33 +47,6 @@ public class Player {
         prediction = in.nextInt();
         return prediction;
     }
-
-
-    //Helper Methonds
-
-    private int validateNumber(int num, int shape) {
-        while (!hand.isInHand(new Card(shape, num))) {
-            System.out.println("Not a valid number, Enter number 2-14");
-            num = in.nextInt();
-        }
-        return num;
-    }
-
-
-    private int validateShape(int shape, int neededShape) {
-        if (hand.hasShape(neededShape)) {
-            if (shape != neededShape)
-                System.out.println("You have to select a card of the required shape. Selecting the required shape, " + GlobalShit.getShapeName(neededShape) + ", automatically");
-            return neededShape;
-        } else {
-            while ((shape < 0 || shape >= GlobalShit.SHAPE_COUNT || !hand.hasShape(shape))) {
-                System.out.println("Not a valid number, Enter number 0-3");
-                shape = in.nextInt();
-            }
-            return shape;
-        }
-    }
-
 
     public Guess getGuess(Guess highestGuess) {
         int num, shape;
@@ -132,6 +79,57 @@ public class Player {
         }
     }
 
+    public Card getCard(int neededShape) {
+        System.out.println("Pick a card from your hand");
+        System.out.println("Needed shape is " + GlobalShit.getShapeName(neededShape));
+        displayHand();
+        int shape, num;
+        System.out.println("Enter the shape, 0-3");
+        System.out.println("0 - Diamond, 1 - Clubs, 2 - Hearts, 3 - Spades");
+        shape = in.nextInt();
+        shape = validateShape(shape, neededShape);
+        System.out.println("Enter number 2-14");
+        num = validateNumber(in.nextInt(), shape);
+        return hand.getCards().remove(findIndexOfCardInHand(new Card(shape, num)));
+    }
+
+    // Setters
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void setHand(Hand hand) {
+        this.hand = hand;
+    }
+
+    public void setHand(ArrayList<Card> cards) {
+        hand.setCards(cards);
+    }
+
+    // Validation methods
+    private int validateNumber(int num, int shape) {
+        while (!hand.isInHand(new Card(shape, num))) {
+            System.out.println("Not a valid number, Enter number 2-14");
+            num = in.nextInt();
+        }
+        return num;
+    }
+
+    private int validateShape(int shape, int neededShape) {
+        if (hand.hasShape(neededShape)) {
+            if (shape != neededShape)
+                System.out.println("You have to select a card of the required shape. Selecting the required shape, " + GlobalShit.getShapeName(neededShape) + ", automatically");
+            return neededShape;
+        } else {
+            while ((shape < 0 || shape >= GlobalShit.SHAPE_COUNT || !hand.hasShape(shape))) {
+                System.out.println("Not a valid number, Enter number 0-3");
+                shape = in.nextInt();
+            }
+            return shape;
+        }
+    }
+
+    //Helper methods
     public void displayHand() {
         System.out.println(name + " these are your cards:");
         for (int i = 0; i < hand.getCards().size(); i++) {
