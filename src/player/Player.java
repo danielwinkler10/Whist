@@ -3,16 +3,18 @@ package player;
 import card.Card;
 import card.Guess;
 import global.GlobalShit;
-import global.Shape;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Player {
+
+    // Variables
     private String name;
     private int score;
     private Hand hand;
 
+    //
     public String getName() {
         return name;
     }
