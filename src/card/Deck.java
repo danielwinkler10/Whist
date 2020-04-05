@@ -9,7 +9,7 @@ import java.util.Collections;
 public class Deck {
     ArrayList<Card> cards;
     ArrayList<Player> players;
-
+    // Creates a new deck that includes 13 cards of each shape= 52 cards
     public Deck(ArrayList<Player> players) {
         cards = new ArrayList<>();
         this.players = players;
@@ -19,11 +19,11 @@ public class Deck {
             }
         }
     }
-
+// Shuffle the deck using the built-in method
     public void shuffle() {
-        Collections.shuffle(cards); //TODO unComment
+        Collections.shuffle(cards);
     }
-
+// Shuffle the deck then assign cards to each player
     public void deal() {
         shuffle();
         for (int i = 0; i < players.size(); i++) {
